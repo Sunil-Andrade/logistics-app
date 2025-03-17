@@ -1,0 +1,17 @@
+# Ignore Flutter build files
+frontend/build/
+frontend/.dart_tool/
+frontend/.idea/
+frontend/.flutter-plugins/
+frontend/.flutter-plugins-dependencies/
+frontend/.packages
+frontend/.metadata
+
+# Ignore Go dependencies
+backend/vendor/
+backend/tmp/
+backend/bin/
+
+# Ignore system files
+.DS_Store
+*.log
