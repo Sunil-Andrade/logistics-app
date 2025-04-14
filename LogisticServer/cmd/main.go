@@ -21,9 +21,9 @@ func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Welcome to the server"))
 	})
-	routes.CargoRoutes(mux)
+
+	routes.CompanyRoutes(mux)
 	routes.UserRoutes(mux)
-	routes.ShipRoute(mux)
 
 	if err := http.ListenAndServe("0.0.0.0:8080", mux); err != nil {
 		log.Fatal("Server Error: ", err)

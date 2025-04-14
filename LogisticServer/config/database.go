@@ -14,7 +14,7 @@ func ConnectDB() {
 	dsn := "root:mysql123@tcp(127.0.0.1:3306)/LOGISTICS"
 	db, err := sql.Open("mysql", dsn)
 	if err != nil {
-		log.Fatal("Database is not respnding", err)
+		log.Fatal("Database is not responding", err)
 	}
 
 	err = db.Ping()

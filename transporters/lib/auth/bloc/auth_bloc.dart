@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:ffi';
-import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +16,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   AuthBloc() : super(AuthInitial()) {
     on<OnUserLogin>(userLogin);
-    on<OnEmployeeLogin>(onEmployLogin);
     on<OnCompanyLogin>(onCompanyLogin);
   }
 
@@ -49,29 +46,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-  Future<void> onEmployLogin(OnEmployeeLogin event, Emitter emit) async {
-    final url = Uri.parse("$baseURl/employee/login");
-    try {
-      emit(AuthLoading());
-      final response = await http.post(url,
-          headers: {"Content-Type": "application/json"},
-          body: jsonEncode({
-            "who": event.empCmpModel.who,
-            "email": event.empCmpModel.email,
-            "password": event.empCmpModel.password
-          }));
-      if (response.statusCode == 201 || response.statusCode == 200) {
-        final resBody = jsonDecode(response.body);
-        final userId = resBody["id"];
-        emit(AuthSuccess(id: userId));
-      } else {
-        emit(AuthFailure(message: "Failed to Sign In ${response.body}"));
-      }
-    } catch (e) {
-      emit(AuthFailure(message: e.toString()));
-    }
-  }
-
   Future<void> onCompanyLogin(OnCompanyLogin event, Emitter emit) async {
     final url = Uri.parse("$baseURl/company/login");
     try {
@@ -85,7 +59,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           }));
       if (response.statusCode == 201 || response.statusCode == 200) {
         final resBody = jsonDecode(response.body);
-        final userId = resBody["id"];
+        final userId = resBody["id"] ?? 0;
         emit(AuthSuccess(
           id: userId,
         ));

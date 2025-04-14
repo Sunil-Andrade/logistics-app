@@ -3,13 +3,13 @@ package routes
 import (
 	"net/http"
 
-	"logisticserver.com/controllers"
+	
+	consumercontroller "logisticserver.com/controllers/consumer_controller"
 )
 
 func UserRoutes(mux *http.ServeMux) {
-	mux.HandleFunc("/users/create", controllers.CreateUserHandler)
-	mux.HandleFunc("/users/signin", controllers.Signin)
-	mux.HandleFunc("/employee/login", controllers.EmpCompSignIn)
-	mux.HandleFunc("/company/login", controllers.EmpCompSignIn)
-	mux.HandleFunc("/employee/getemployee", controllers.GetEmployees)
+	mux.HandleFunc("/users/create", consumercontroller.CreateUserHandler)
+	mux.HandleFunc("/users/signin", consumercontroller.Signin)
+	mux.HandleFunc("/orders/placeorder", consumercontroller.PlaceOrder)
+	mux.HandleFunc("/orders/getorders", consumercontroller.GetOrder)
 }

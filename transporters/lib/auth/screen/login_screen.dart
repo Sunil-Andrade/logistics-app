@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:transporters/auth/bloc/auth_bloc.dart';
 import 'package:transporters/auth/model/emp_cmp_model.dart';
 import 'package:transporters/auth/model/user_model.dart';
 import 'package:transporters/auth/screen/widgets/field_container.dart';
 import 'package:transporters/auth/screen/widgets/role_box.dart';
-import 'package:transporters/screen/home/home.dart';
+import 'package:transporters/const_val.dart';
+
+import 'package:transporters/state/cubit/sidebar_cubit.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({super.key, required this.constVal});
+
+  final ConstVal constVal;
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -97,19 +102,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         });
                       },
                       child: RoleBox(
-                        label: "EMPLOYEE",
-                        isClicked: index == 1,
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          index = 2;
-                        });
-                      },
-                      child: RoleBox(
                         label: "COMPANY",
-                        isClicked: index == 2,
+                        isClicked: index == 1,
                       ),
                     ),
                   ],
@@ -183,13 +177,18 @@ class _LoginScreenState extends State<LoginScreen> {
                       });
                     }
                     if (state is AuthSuccess) {
-                      Future.microtask(() {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (builder) => Home(
-                                  index: index,
-                                  id: state.id,
-                                )));
-                      });
+                      if (index == 0) {
+                        Future.microtask(() {
+                          widget.constVal.userID = state.id;
+                          context.read<SidebarCubit>().getIndex(index);
+                          context.go('/homescreen');
+                        });
+                      } else {
+                        Future.microtask(() {
+                          context.read<SidebarCubit>().getIndex(index);
+                          context.go('/homescreen');
+                        });
+                      }
                     }
                     return GestureDetector(
                       onTap: () {
@@ -225,15 +224,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           );
                           return;
                         }
+
                         if (index == 1) {
-                          context.read<AuthBloc>().add(OnEmployeeLogin(
-                                  empCmpModel: EmpCmpModel(
-                                email: email.text,
-                                password: password.text,
-                                who: index,
-                              )));
-                        }
-                        if (index == 2) {
                           context.read<AuthBloc>().add(OnCompanyLogin(
                               empCmpModel: EmpCmpModel(
                                   email: email.text,
