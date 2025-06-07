@@ -1,7 +1,22 @@
+# **Flutter** & **Go** Logistics App 
 ---
+```
+A logistics app for both users and companies to track, manage, and coordinate deliveries.
+```
+### Features
+- Users To
+    - Order Shipping Service
+    - Track Order
+- Company To
+    - Manage Employees
+    - Manage Orders
+    - Manage Ships & Ports
 
-# logistics-app
-Building a logistic app with MySQL Data Base
+### Demo
+
+![Auth](assets/sign_up_lg.png)
+![Home](assets/home_lg.png)
+![Add Cargo](assets/add_car_lg.png)
 
 
-![Demo](assets/home_lg.png)
+
