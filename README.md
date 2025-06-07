@@ -16,8 +16,14 @@ A logistics app for both users and companies to track, manage, and coordinate de
 
 > [!Auth]
 
-> ![Auth](assets/sign_up_lg.png)
+![Auth](assets/sign_up_lg.png)
+
+> [!Home Page]
+
 ![Home](assets/home_lg.png)
+
+> [Order page]
+
 ![Add Cargo](assets/add_car_lg.png)
 
 
