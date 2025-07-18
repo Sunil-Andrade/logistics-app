@@ -33,15 +33,15 @@ A logistics app for both users and companies to track, manage, and coordinate de
 
 ### 👤 Users Page
 
-![Users](assets/users.png)
+![Users](assets/user.png)
 
 ### 🚢 Ports
 
-![Ports](assets/ports.png)
+![Ports](assets/uports.png)
 
 ### 🛒 Delivery
 
-![Ports](assets/ports.png)
+![Ports](assets/udel.png)
 
 ## 🏁 Getting Started (For Developers)
 
