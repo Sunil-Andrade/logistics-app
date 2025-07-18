@@ -38,7 +38,7 @@ A logistics app for both users and companies to track, manage, and coordinate de
 1.  **Ensure you have the Flutter SDK installed.** You can find instructions on the [official Flutter website](https://flutter.dev/docs/get-started/install).
 2.  **Clone the repository:**
    
-    git clone [`git clone https://github.com/Sunil-Andrade/pet_app.git`](https://github.com/Sunil-Andrade/pet_app.git)
+    git clone [`https://github.com/Sunil-Andrade/logistics-app.git`](https://github.com/Sunil-Andrade/logistics-app.git)
    
 3.  **Navigate to the project directory:**
     ```bash
@@ -55,19 +55,17 @@ A logistics app for both users and companies to track, manage, and coordinate de
     
 6. **Ensure you have Go installed.** You can find instructions on the [official Go website](https://go.dev/doc/install).
 
-7. **Clone the repository:**  
-   [`git clone https://github.com/Sunil-Andrade/pet_app_server.git`](https://github.com/Sunil-Andrade/pet_app_server.git)
-
-8. **Navigate to the project directory:**
+7. **Navigate to the project directory:**
 
    ```bash
    cd pet_app_server
    ```
-9. **Get the dependencies:**
+8. **Get the dependencies:**
     ```bash
     go mod tidy
     ```
-11.  **Run the application:**
+9. **Run the application:**
+
     ```bash
     go run main.go
     ```
