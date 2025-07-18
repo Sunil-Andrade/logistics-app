@@ -42,7 +42,7 @@ A logistics app for both users and companies to track, manage, and coordinate de
    
 3.  **Navigate to the project directory:**
     ```bash
-    cd logistics-app
+    cd transporters
     ```
 4.  **Get the dependencies:**
     ```bash
@@ -58,7 +58,7 @@ A logistics app for both users and companies to track, manage, and coordinate de
 7. **Navigate to the project directory:**
 
    ```bash
-   cd pet_app_server
+   cd LogisticServer
    ```
 8. **Get the dependencies:**
     ```bash
