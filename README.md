@@ -31,6 +31,18 @@ A logistics app for both users and companies to track, manage, and coordinate de
 
 ![Add Cargo](assets/add_car_lg.png)
 
+### 👤 Users Page
+
+![Users](assets/users.png)
+
+### 🚢 Ports
+
+![Ports](assets/ports.png)
+
+### 🛒 Delivery
+
+![Ports](assets/ports.png)
+
 ## 🏁 Getting Started (For Developers)
 
 
